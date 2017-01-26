@@ -1,0 +1,21 @@
+Docker Engine/Compose/Machine Install
+
+wget -qO- https://get.docker.com/ | sh
+# If behind a filtering proxy:
+wget -qO- https://get.docker.com/gpg | sudo apt-key add -
+
+# To use docker as non-root
+ sudo usermod -aG docker <<username>>
+
+ # Docker Compose
+ 
+sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# Docker Machine
+
+curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && \
+chmod +x /usr/local/bin/docker-machine
+docker-machine version
